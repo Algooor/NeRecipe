@@ -1,8 +1,10 @@
 package ru.netology.nerecipe.adapter
 
+import android.content.Context
 import ru.netology.nerecipe.recipe.Recipe
 
     interface RecipeInteractionListener {
+
 
         fun onAddFavoriteClicked(recipe: Recipe)
         fun onRemoveClicked(recipe: Recipe)

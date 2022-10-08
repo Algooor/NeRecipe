@@ -2,6 +2,7 @@ package ru.netology.nerecipe.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +34,8 @@ internal class FiltersAdapter(
             binding.checkboxCategoryFilter.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     listener.checkboxFilterPressedOn(category)
-                } else listener.checkboxFilterPressedOff(category)
+                } else
+                    listener.checkboxFilterPressedOff(category)
             }
         }
 
