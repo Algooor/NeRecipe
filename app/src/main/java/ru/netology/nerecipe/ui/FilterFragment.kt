@@ -1,5 +1,6 @@
 package ru.netology.nerecipe.ui
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -32,10 +33,13 @@ class FilterFragment : Fragment() {
         adapterFilter.submitList(categoriesList)
 
         binding.selectFilter.setOnClickListener {
-            //if()
-            Toast.makeText(activity, "Вы не можете снять все фильтры", Toast.LENGTH_LONG).show()
+            val oia = RecipeViewModel(Application()).checkingFilters()
+            if (oia == true) {
+                Toast.makeText(activity, "Вы не можете снять все фильтры", Toast.LENGTH_LONG).show()
+            } else
+                findNavController().popBackStack()
+
             return@setOnClickListener
-            findNavController().popBackStack()
 
         }
 

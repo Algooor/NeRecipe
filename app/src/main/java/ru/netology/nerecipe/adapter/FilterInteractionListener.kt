@@ -8,4 +8,6 @@ interface FilterInteractionListener {
 
     fun getStatusCheckBox(category: String): Boolean
 
+
+
 }
