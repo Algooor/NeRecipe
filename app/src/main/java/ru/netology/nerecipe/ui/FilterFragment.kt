@@ -33,14 +33,13 @@ class FilterFragment : Fragment() {
         adapterFilter.submitList(categoriesList)
 
         binding.selectFilter.setOnClickListener {
-            val oia = RecipeViewModel(Application()).checkingFilters()
-            if (oia == true) {
+
+            if (viewModel.checkingFilters()) {
                 Toast.makeText(activity, "Вы не можете снять все фильтры", Toast.LENGTH_LONG).show()
-            } else
+            } else {
                 findNavController().popBackStack()
-
+            }
             return@setOnClickListener
-
         }
 
     }.root

@@ -160,12 +160,8 @@ import java.util.*
          return filters.value?.contains(category) == true
      }
 
-      fun checkingFilters () : Boolean {
-         val filterList = filters.value
-          if (filterList?.isEmpty() == true) {
-              filters.value = filterList
-          }
-             return true
+     fun checkingFilters(): Boolean {
+         return filters.value.orEmpty().isEmpty()
      }
  }
 
