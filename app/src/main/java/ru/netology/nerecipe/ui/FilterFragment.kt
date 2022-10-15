@@ -1,8 +1,11 @@
 package ru.netology.nerecipe.ui
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.graphics.component1
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -27,12 +30,18 @@ class FilterFragment : Fragment() {
 
         val adapterFilter = FiltersAdapter(viewModel)
         binding.filterRecycleView.adapter = adapterFilter
-
         adapterFilter.submitList(categoriesList)
 
         binding.selectFilter.setOnClickListener {
 
-            findNavController().popBackStack()
+            if (viewModel.checkingFilters()) {
+                Toast.makeText(activity, "Вы не можете снять все фильтры", Toast.LENGTH_LONG).show()
+            } else {
+                findNavController().popBackStack()
+            }
+            return@setOnClickListener
         }
+
     }.root
+
 }

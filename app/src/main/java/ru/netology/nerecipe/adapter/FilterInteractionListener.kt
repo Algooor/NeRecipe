@@ -7,4 +7,7 @@ interface FilterInteractionListener {
     fun checkboxFilterPressedOff(category: String)
 
     fun getStatusCheckBox(category: String): Boolean
+
+
+
 }
